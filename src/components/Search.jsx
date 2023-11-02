@@ -2,6 +2,7 @@ import { useState } from "react";
 import { mockSearchResults } from '../constants/Mock'
 import { BiSolidSearchAlt2 } from 'react-icons/bi'
 import { RxCross2 } from 'react-icons/rx'
+import SearchResults from "./SearchResults";
 
 const Search = () => {
     const [inputValue, setInputValue] = useState('')
@@ -34,6 +35,16 @@ const Search = () => {
                     <RxCross2 />
                 </button>
             )}
+
+            <button
+                className="p-2 text-purple-300 bg-purple-800 rounded-md mr-1"
+                onClick={updateBestMatches}>
+                <BiSolidSearchAlt2 />
+            </button>
+
+            {inputValue && bestMatches.length > 0 ? (
+                <SearchResults results={bestMatches} />
+            ) : null}
         </div>
     );
 };

@@ -1,4 +1,5 @@
 import Card from "./Card";
+import Chart from "./Chart";
 import Header from "./Header";
 
 const Dashboard = () => {
@@ -8,7 +9,7 @@ const Dashboard = () => {
                 <Header />
             </div>
             <div className="md:col-span-2 row-span-4">
-                <Card>Chart</Card>
+                <Chart />
             </div>
             <div>
                 <Card>Overview</Card>
