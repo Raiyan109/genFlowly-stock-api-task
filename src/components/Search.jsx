@@ -1,20 +1,29 @@
 import { useState } from "react";
-import { mockSearchResults } from '../constants/Mock'
 import { BiSolidSearchAlt2 } from 'react-icons/bi'
 import { RxCross2 } from 'react-icons/rx'
 import SearchResults from "./SearchResults";
+import { searchSymbol } from "../api/stockApi";
 
 const Search = () => {
     const [inputValue, setInputValue] = useState('')
-    const [bestMatches, setBestMatches] = useState(mockSearchResults.result)
+    const [bestMatches, setBestMatches] = useState([])
 
     const clear = () => {
         setInputValue('')
         setBestMatches([])
     }
 
-    const updateBestMatches = () => {
-        setBestMatches(mockSearchResults.result)
+    const updateBestMatches = async () => {
+        try {
+            if (inputValue) {
+                const searchResults = await searchSymbol(inputValue)
+                const result = searchResults.result
+                setBestMatches(result)
+            }
+        } catch (error) {
+            setBestMatches([])
+            console.log(error);
+        }
     }
     return (
         <div className="flex items-center my-4 border-2 rounded-md relative z-50 w-96 bg-white border-neutral-200">
