@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useStock } from "../context/StockProvider";
-import Card from "./Card";
 import Chart from "./Chart";
 import Header from "./Header";
 import { fetchQuote, fetchStockDetails } from "../api/stockApi";
@@ -8,7 +7,7 @@ import Overview from "./Overview";
 import Details from "./Details";
 
 const Dashboard = () => {
-    const { stockSymbol, setStockSymbol } = useStock()
+    const { stockSymbol } = useStock()
     const [stockDetails, setStockDetails] = useState({})
     const [quote, setQuote] = useState({})
 
