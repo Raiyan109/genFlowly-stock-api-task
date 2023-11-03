@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 export const StockContext = createContext()
 
@@ -16,3 +16,7 @@ const StockProvider = ({ children }) => {
 }
 
 export default StockProvider
+
+export const useStock = () => {
+    return useContext(StockContext)
+}
