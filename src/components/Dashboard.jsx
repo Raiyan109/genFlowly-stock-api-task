@@ -4,6 +4,8 @@ import Card from "./Card";
 import Chart from "./Chart";
 import Header from "./Header";
 import { fetchQuote, fetchStockDetails } from "../api/stockApi";
+import Overview from "./Overview";
+import Details from "./Details";
 
 const Dashboard = () => {
     const { stockSymbol, setStockSymbol } = useStock()
@@ -42,10 +44,16 @@ const Dashboard = () => {
                 <Chart />
             </div>
             <div>
-                <Card>Overview</Card>
+                <Overview
+                    symbol={stockSymbol}
+                    price={quote.pc}
+                    change={quote.d}
+                    changePercent={quote.dp}
+                    currency={stockDetails.currency}
+                />
             </div>
             <div className="row-span-2 xl:row-span-3">
-                <Card>Details</Card>
+                <Details details={stockDetails} />
             </div>
         </div>
     );
