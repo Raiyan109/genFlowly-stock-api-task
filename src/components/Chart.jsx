@@ -13,7 +13,7 @@ const Chart = () => {
     const { stockSymbol } = useStock()
 
     const formData = (data) => {
-        return data.c.map((item, index) => {
+        return data?.c?.map((item, index) => {
             return {
                 value: item.toFixed(2),
                 date: convertUnixTimestampToDate(data.t[index])
@@ -53,7 +53,7 @@ const Chart = () => {
     return (
         <Card>
             <ul className="flex absolute top-2 right-2 z-40">
-                {Object.keys(chartConfig).map((item) => {
+                {Object.keys(chartConfig)?.map((item) => {
                     return (
                         <li key={item}>
                             <ChartFilter text={item} active={filter === item}
