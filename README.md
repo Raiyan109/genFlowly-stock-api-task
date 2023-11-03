@@ -1,1 +1,1 @@
-[Live Link](https://gen-flowly-stock-api-task.vercel.app/)
+[Live Link](https://gen-flowly-stock-api-task-6hcl.vercel.app/)
